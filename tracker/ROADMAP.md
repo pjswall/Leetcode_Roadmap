@@ -5,7 +5,7 @@
 | Topic | Progress | Next focus |
 |---|---|---|
 | Two Pointers | **Fully Completed — 8 levels** | [Level-wise guides](../notes/two-pointers/README.md) |
-| Sliding Window | **Fully Completed** | Mixed-topic revision |
+| Sliding Window | **Fully Completed — 6 levels / 19 problems** | [Level-wise guides](../notes/sliding-window/README.md) |
 | Intervals | **Fully Completed — 16 problems / 7 patterns** | [Pattern study guides](../notes/intervals/README.md) |
 | Binary Search | Levels 1–2 completed; Level 3 in progress | **LC 153** (Level 3, problem 2) |
 | Prefix Sum + Hashing | Planned | Prefix map/counting, remainder |
