@@ -34,3 +34,83 @@ In counting problems, bulk-count valid ranges; in unique tuple output problems, 
 - Compare against brute force and state time/space complexity.
 
 > These are curated reference notes from the supplied level/problem outline with added standard algorithm intuition and complexities. They are not verbatim exports of past chats, and no personal code submissions are claimed.
+
+
+## Python reference implementations
+
+### LC 15 — 3Sum
+```python
+class Solution:
+    def threeSum(self, nums):
+        nums.sort()
+        ans = []
+        for i in range(len(nums) - 2):
+            if i and nums[i] == nums[i - 1]: continue
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                total = nums[i] + nums[l] + nums[r]
+                if total < 0: l += 1
+                elif total > 0: r -= 1
+                else:
+                    ans.append([nums[i], nums[l], nums[r]])
+                    l += 1
+                    r -= 1
+                    while l < r and nums[l] == nums[l - 1]: l += 1
+                    while l < r and nums[r] == nums[r + 1]: r -= 1
+        return ans
+```
+### LC 16 — 3Sum Closest
+```python
+class Solution:
+    def threeSumClosest(self, nums, target):
+        nums.sort()
+        best = sum(nums[:3])
+        for i in range(len(nums) - 2):
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                total = nums[i] + nums[l] + nums[r]
+                if abs(total - target) < abs(best - target): best = total
+                if total < target: l += 1
+                elif total > target: r -= 1
+                else: return target
+        return best
+```
+### LC 18 — 4Sum
+```python
+class Solution:
+    def fourSum(self, nums, target):
+        nums.sort()
+        ans, n = [], len(nums)
+        for i in range(n - 3):
+            if i and nums[i] == nums[i - 1]: continue
+            for j in range(i + 1, n - 2):
+                if j > i + 1 and nums[j] == nums[j - 1]: continue
+                l, r = j + 1, n - 1
+                while l < r:
+                    total = nums[i] + nums[j] + nums[l] + nums[r]
+                    if total < target: l += 1
+                    elif total > target: r -= 1
+                    else:
+                        ans.append([nums[i], nums[j], nums[l], nums[r]])
+                        l += 1
+                        r -= 1
+                        while l < r and nums[l] == nums[l - 1]: l += 1
+                        while l < r and nums[r] == nums[r + 1]: r -= 1
+        return ans
+```
+### LC 259 — 3Sum Smaller
+```python
+class Solution:
+    def threeSumSmaller(self, nums, target):
+        nums.sort()
+        count = 0
+        for i in range(len(nums) - 2):
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                if nums[i] + nums[l] + nums[r] < target:
+                    count += r - l
+                    l += 1
+                else:
+                    r -= 1
+        return count
+```
