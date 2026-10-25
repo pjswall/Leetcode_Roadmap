@@ -31,3 +31,30 @@ Counting unique distinct characters is insufficient when the target contains dup
 4. Explain why each element enters/leaves the window or deque a bounded number of times.
 
 > Curated explanations, not verbatim chat exports or your saved accepted code. The level's inclusion in the completed track does not independently verify every submitted solution.
+
+
+## Python reference implementations
+
+### LC 76 — Minimum Window Substring
+```python
+from collections import Counter
+class Solution:
+    def minWindow(self, s, t):
+        need = Counter(t)
+        missing = len(t)
+        left = 0
+        best_len = float("inf")
+        best_start = 0
+        for right, char in enumerate(s):
+            if need[char] > 0: missing -= 1
+            need[char] -= 1
+            while missing == 0:
+                if right-left+1 < best_len:
+                    best_len = right-left+1
+                    best_start = left
+                outgoing = s[left]
+                need[outgoing] += 1
+                if need[outgoing] > 0: missing += 1
+                left += 1
+        return "" if best_len == float("inf") else s[best_start:best_start+best_len]
+```
