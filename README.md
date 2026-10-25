@@ -21,6 +21,7 @@ For details, see the [master roadmap](tracker/ROADMAP.md) and [problem tracker](
 - [Roadmap](tracker/ROADMAP.md) — topic order and next focus
 - [Problem tracker](tracker/PROBLEMS.md) — current checkpoints
 - [Problem template](templates/PROBLEM_TEMPLATE.md) — reusable reasoning structure
+- [Intervals — 16 completed problems, 7 pattern guides](notes/intervals/README.md)
 - [LC 153 note](notes/binary-search/LC153.md) — rotated-array minimum
 - [LC 930 note](notes/sliding-window/LC930.md) — exact-count counting (historical study note)
 
