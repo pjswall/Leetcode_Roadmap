@@ -1,28 +1,34 @@
 # Problem progress tracker
 
+## Completed topic tracks (confirmed 2026-10-26)
+- **Two Pointers — Fully Completed**
+- **Sliding Window — Fully Completed**
+- **Intervals — Fully Completed**
+
+Topic completion is user-confirmed. The detailed itemization below reflects the last recorded individual statuses, which can lag behind a finished topic; it is **not** a list of unfinished work.
+
 ## Two Pointers — completed
 LC 125, 344, 167, 977, 26, 27, 283, 80, 392, 844, 925, 680, 15, 16, 18, 75, 86, 905, 922, 11, 881, 42, 1574, 88, 2540, 2824, 611, 1498, 923.
 
-## Sliding Window
-| Level/pattern | Problems | Current status |
-|---|---|---|
-| Fixed | 643, 1456, 1343, 2379 | Solved |
-| Variable | 209, 904, 424 | Solved |
-| Frequency | 438 | Solved |
-| Variable / frequency | 3, 1004, 567, 76 | Learning / reconfirm independent completion |
-| Exact counting | 930 | Learning |
-| Exact counting | 1248, 992 | Not Started (last verified) |
-| Monotonic deque | 239 | Not Started (last verified) |
+## Sliding Window — fully completed track
+Problems recorded across the track:
+- Fixed window: 643, 1456, 1343, 2379
+- Variable window: 209, 3, 904, 1004, 424
+- Frequency matching: 438, 567, 76
+- Exact counting: 930, 1248, 992
+- Monotonic deque: 239
 
-## Intervals
-Track completed. Specific historical problem IDs still to be imported.
+All levels of this track are **complete** as confirmed by the learner. Per-problem accepted Python submissions are not yet all imported.
 
-## Binary Search
-- Levels 1 and 2: **Completed**, individual problem IDs to be imported.
-- Level 3, problem 2: **LC 153 — Find Minimum in Rotated Sorted Array**, currently Learning.
+## Intervals — fully completed track
+Specific historical problem IDs still to be imported; completion is confirmed.
+
+## Binary Search — current topic
+- Levels 1 and 2: **Completed**; individual problem IDs to be imported.
+- Level 3, problem 2: **LC 153 — Find Minimum in Rotated Sorted Array**, **Learning**.
 
 ## Prefix Sum + Hashing (planned)
 303, 560, 525, 974, 523.
 
 ## Progress policy
-Do not mark a discussed solution **Solved** unless independent implementation or acceptance was confirmed. Paste your own accepted code under `solutions/`; use `notes/` for explanations and pitfalls.
+A completed topic reflects the user's explicit confirmation. Keep per-problem submission/acceptance evidence separate from topic completion. Paste your own accepted code under `solutions/`; use `notes/` for explanations and pitfalls.
