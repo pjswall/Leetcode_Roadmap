@@ -34,3 +34,71 @@ Store indices to know expiration. Deque is O(n) when each index enters and leave
 4. Explain why each element enters/leaves the window or deque a bounded number of times.
 
 > Curated explanations, not verbatim chat exports or your saved accepted code. The level's inclusion in the completed track does not independently verify every submitted solution.
+
+
+## Python reference implementations
+
+### LC 239 — Sliding Window Maximum
+```python
+from collections import deque
+class Solution:
+    def maxSlidingWindow(self, nums, k):
+        dq, ans = deque(), []
+        for i, value in enumerate(nums):
+            while dq and dq[0] <= i-k: dq.popleft()
+            while dq and nums[dq[-1]] <= value: dq.pop()
+            dq.append(i)
+            if i >= k-1: ans.append(nums[dq[0]])
+        return ans
+```
+### LC 1696 — Jump Game VI
+```python
+from collections import deque
+class Solution:
+    def maxResult(self, nums, k):
+        dq = deque([0])
+        dp = [0] * len(nums)
+        dp[0] = nums[0]
+        for i in range(1, len(nums)):
+            while dq[0] < i-k: dq.popleft()
+            dp[i] = nums[i] + dp[dq[0]]
+            while dq and dp[dq[-1]] <= dp[i]: dq.pop()
+            dq.append(i)
+        return dp[-1]
+```
+### LC 1438 — Longest Continuous Subarray With Absolute Diff <= Limit
+```python
+from collections import deque
+class Solution:
+    def longestSubarray(self, nums, limit):
+        inc, dec = deque(), deque()
+        left = best = 0
+        for right, value in enumerate(nums):
+            while inc and nums[inc[-1]] > value: inc.pop()
+            while dec and nums[dec[-1]] < value: dec.pop()
+            inc.append(right)
+            dec.append(right)
+            while nums[dec[0]] - nums[inc[0]] > limit:
+                if inc[0] == left: inc.popleft()
+                if dec[0] == left: dec.popleft()
+                left += 1
+            best = max(best, right-left+1)
+        return best
+```
+### LC 862 — Shortest Subarray With Sum at Least K
+```python
+from collections import deque
+class Solution:
+    def shortestSubarray(self, nums, k):
+        prefix = [0]
+        for x in nums: prefix.append(prefix[-1] + x)
+        dq = deque()
+        best = len(nums) + 1
+        for i, current in enumerate(prefix):
+            while dq and current-prefix[dq[0]] >= k:
+                best = min(best, i-dq.popleft())
+            while dq and prefix[dq[-1]] >= current:
+                dq.pop()
+            dq.append(i)
+        return best if best <= len(nums) else -1
+```
