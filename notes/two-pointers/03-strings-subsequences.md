@@ -34,3 +34,61 @@ Do not advance both pointers unconditionally. LC 680 must try both deletion alte
 - Compare against brute force and state time/space complexity.
 
 > These are curated reference notes from the supplied level/problem outline with added standard algorithm intuition and complexities. They are not verbatim exports of past chats, and no personal code submissions are claimed.
+
+
+## Python reference implementations
+
+### LC 392 — Is Subsequence
+```python
+class Solution:
+    def isSubsequence(self, s, t):
+        i = 0
+        for char in t:
+            if i < len(s) and char == s[i]:
+                i += 1
+        return i == len(s)
+```
+### LC 844 — Backspace String Compare
+```python
+class Solution:
+    def backspaceCompare(self, s, t):
+        def visible(text):
+            i, skip = len(text) - 1, 0
+            while i >= 0:
+                if text[i] == "#": skip += 1
+                elif skip: skip -= 1
+                else: yield text[i]
+                i -= 1
+        from itertools import zip_longest
+        return all(a == b for a, b in zip_longest(visible(s), visible(t)))
+```
+### LC 925 — Long Pressed Name
+```python
+class Solution:
+    def isLongPressedName(self, name, typed):
+        i = 0
+        for j, char in enumerate(typed):
+            if i < len(name) and char == name[i]:
+                i += 1
+            elif j == 0 or char != typed[j - 1]:
+                return False
+        return i == len(name)
+```
+### LC 680 — Valid Palindrome II
+```python
+class Solution:
+    def validPalindrome(self, s):
+        def check(l, r):
+            while l < r:
+                if s[l] != s[r]: return False
+                l += 1
+                r -= 1
+            return True
+        l, r = 0, len(s) - 1
+        while l < r:
+            if s[l] != s[r]:
+                return check(l + 1, r) or check(l, r - 1)
+            l += 1
+            r -= 1
+        return True
+```
