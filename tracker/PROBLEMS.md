@@ -24,15 +24,20 @@ Topic completion is user-confirmed. The detailed itemization below reflects the 
 
 **Additional solved problems retained from the prior roadmap:** 2540, 2824, 611, 1498, 923 (sorted arrays and pair/subsequence counting). The historical Level 8 snapshot marked 922 “Current”; the later full-track completion confirmation supersedes that checkpoint.
 
-## Sliding Window — fully completed track
-Problems recorded across the track:
-- Fixed window: 643, 1456, 1343, 2379
-- Variable window: 209, 3, 904, 1004, 424
-- Frequency matching: 438, 567, 76
-- Exact counting: 930, 1248, 992
-- Monotonic deque: 239
+## Sliding Window — fully completed (six-level sequence)
 
-All levels of this track are **complete** as confirmed by the learner. Per-problem accepted Python submissions are not yet all imported.
+| Level | Pattern | Problems |
+|---|---|---|
+| 1 | Fixed-size | 643, 1456, 1343, 2379 |
+| 2 | Variable-size | 209, 3, 904, 1004, 424 |
+| 3 | Frequency matching | 567, 438 |
+| 4 | Minimum / hard window | 76 |
+| 5 | Counting | 930, 1248, 992 |
+| 6 | Advanced structures | 239, 1696, 1438, 862 |
+
+[Complete Sliding Window study guides](../notes/sliding-window/README.md).
+
+**Progress convention:** the full track is confirmed complete; individual problems retain original labels where supplied, and advanced Level 6 entries are included without invented submission evidence.
 
 ## Intervals — fully completed track (16 problems)
 - Basic overlap: **252, 2446**
