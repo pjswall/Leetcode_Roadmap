@@ -51,8 +51,13 @@ Topic completion is user-confirmed. The detailed itemization below reflects the 
 [Read the Intervals study guides](../notes/intervals/README.md).
 
 ## Binary Search — current topic
-- Levels 1 and 2: **Completed**; individual problem IDs to be imported.
-- Level 3, problem 2: **LC 153 — Find Minimum in Rotated Sorted Array**, **Learning**.
+| Level | Pattern | Problems | Status |
+|---|---|---|---|
+| 1 | Classical Binary Search | 704, 35, 69, 367 | Completed |
+| 2 | Boundaries and Insertion Positions | 34, 278, 744, 1539 | Completed |
+| 3 | Rotated Sorted Arrays | 33, 153 | In progress; **153 current** |
+
+[Binary Search guides and reference code](../notes/binary-search/README.md).
 
 ## Prefix Sum + Hashing (planned)
 303, 560, 525, 974, 523.
