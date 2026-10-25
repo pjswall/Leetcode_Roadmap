@@ -32,3 +32,43 @@ Do not compare unordered character sets: multiplicities matter. Watch duplicate 
 4. Explain why each element enters/leaves the window or deque a bounded number of times.
 
 > Curated explanations, not verbatim chat exports or your saved accepted code. The level's inclusion in the completed track does not independently verify every submitted solution.
+
+
+## Python reference implementations
+
+### LC 567 — Permutation in String
+```python
+from collections import Counter
+class Solution:
+    def checkInclusion(self, s1, s2):
+        k = len(s1)
+        if k > len(s2): return False
+        need = Counter(s1)
+        have = Counter(s2[:k])
+        if have == need: return True
+        for right in range(k, len(s2)):
+            have[s2[right]] += 1
+            outgoing = s2[right-k]
+            have[outgoing] -= 1
+            if have[outgoing] == 0: del have[outgoing]
+            if have == need: return True
+        return False
+```
+### LC 438 — Find All Anagrams in a String
+```python
+from collections import Counter
+class Solution:
+    def findAnagrams(self, s, p):
+        k = len(p)
+        if k > len(s): return []
+        need, have = Counter(p), Counter(s[:k])
+        result = []
+        if need == have: result.append(0)
+        for right in range(k, len(s)):
+            have[s[right]] += 1
+            outgoing = s[right-k]
+            have[outgoing] -= 1
+            if have[outgoing] == 0: del have[outgoing]
+            if need == have: result.append(right-k+1)
+        return result
+```
