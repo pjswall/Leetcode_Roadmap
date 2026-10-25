@@ -6,7 +6,7 @@
 |---|---|---|
 | Two Pointers | **Fully Completed** | Mixed-topic revision |
 | Sliding Window | **Fully Completed** | Mixed-topic revision |
-| Intervals | **Fully Completed** | Revision |
+| Intervals | **Fully Completed — 16 problems / 7 patterns** | [Pattern study guides](../notes/intervals/README.md) |
 | Binary Search | Levels 1–2 completed; Level 3 in progress | **LC 153** (Level 3, problem 2) |
 | Prefix Sum + Hashing | Planned | Prefix map/counting, remainder |
 | Stack | Planned | Monotonic stack |
@@ -23,4 +23,4 @@
 
 Track statuses: **Fully Completed** = learner confirms whole planned topic track finished; **Learning** = current practice; **Planned** = future topic; **Revision Needed** = revisit later.
 
-The full historical list of Binary Search L1–L2 and Intervals problem IDs remains to be imported.
+The full historical list of Binary Search L1–L2 problem IDs remains to be imported. The completed Intervals problem list and study guides have been added.
