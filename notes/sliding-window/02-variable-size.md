@@ -35,3 +35,81 @@ LC 209 uses a strictly positive input assumption for monotonic shrinking. LC 3 r
 4. Explain why each element enters/leaves the window or deque a bounded number of times.
 
 > Curated explanations, not verbatim chat exports or your saved accepted code. The level's inclusion in the completed track does not independently verify every submitted solution.
+
+
+## Python reference implementations
+
+### LC 209 — Minimum Size Subarray Sum
+```python
+class Solution:
+    def minSubArrayLen(self, target, nums):
+        left = total = 0
+        best = len(nums) + 1
+        for right, value in enumerate(nums):
+            total += value
+            while total >= target:
+                best = min(best, right - left + 1)
+                total -= nums[left]
+                left += 1
+        return 0 if best == len(nums) + 1 else best
+```
+### LC 3 — Longest Substring Without Repeating Characters
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s):
+        seen = set()
+        left = best = 0
+        for right, char in enumerate(s):
+            while char in seen:
+                seen.remove(s[left])
+                left += 1
+            seen.add(char)
+            best = max(best, right - left + 1)
+        return best
+```
+### LC 904 — Fruit Into Baskets
+```python
+from collections import defaultdict
+class Solution:
+    def totalFruit(self, fruits):
+        counts = defaultdict(int)
+        left = best = 0
+        for right, fruit in enumerate(fruits):
+            counts[fruit] += 1
+            while len(counts) > 2:
+                old = fruits[left]
+                counts[old] -= 1
+                if counts[old] == 0: del counts[old]
+                left += 1
+            best = max(best, right-left+1)
+        return best
+```
+### LC 1004 — Max Consecutive Ones III
+```python
+class Solution:
+    def longestOnes(self, nums, k):
+        left = zeros = best = 0
+        for right, value in enumerate(nums):
+            if value == 0: zeros += 1
+            while zeros > k:
+                if nums[left] == 0: zeros -= 1
+                left += 1
+            best = max(best, right-left+1)
+        return best
+```
+### LC 424 — Longest Repeating Character Replacement
+```python
+from collections import defaultdict
+class Solution:
+    def characterReplacement(self, s, k):
+        counts = defaultdict(int)
+        left = best = max_freq = 0
+        for right, char in enumerate(s):
+            counts[char] += 1
+            max_freq = max(max_freq, counts[char])
+            while right-left+1-max_freq > k:
+                counts[s[left]] -= 1
+                left += 1
+            best = max(best, right-left+1)
+        return best
+```
