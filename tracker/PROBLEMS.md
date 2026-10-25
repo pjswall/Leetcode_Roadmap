@@ -7,8 +7,22 @@
 
 Topic completion is user-confirmed. The detailed itemization below reflects the last recorded individual statuses, which can lag behind a finished topic; it is **not** a list of unfinished work.
 
-## Two Pointers — completed
-LC 125, 344, 167, 977, 26, 27, 283, 80, 392, 844, 925, 680, 15, 16, 18, 75, 86, 905, 922, 11, 881, 42, 1574, 88, 2540, 2824, 611, 1498, 923.
+## Two Pointers — fully completed (8-level sequence)
+
+| Level | Pattern | Problems |
+|---|---|---|
+| 1 | Opposite-direction | 125, 344, 167, 977 |
+| 2 | Same-direction | 26, 27, 283, 80 |
+| 3 | Strings / subsequences | 392, 844, 925, 680 |
+| 4 | Anchor + two pointers | 15, 16, 18, 259 |
+| 5 | Greedy | 11, 881, 42, 1574 |
+| 6 | Sorted collections / intervals | 88, 986, 350, 658 |
+| 7 | Fast / slow | 141, 142, 876, 202, 287 |
+| 8 | Partitioning | 75, 86, 905, 922 |
+
+[Complete Two Pointers study guides](../notes/two-pointers/README.md).
+
+**Additional solved problems retained from the prior roadmap:** 2540, 2824, 611, 1498, 923 (sorted arrays and pair/subsequence counting). The historical Level 8 snapshot marked 922 “Current”; the later full-track completion confirmation supersedes that checkpoint.
 
 ## Sliding Window — fully completed track
 Problems recorded across the track:
