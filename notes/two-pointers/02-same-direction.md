@@ -34,3 +34,50 @@ The returned length defines the valid prefix, not necessarily the full array con
 - Compare against brute force and state time/space complexity.
 
 > These are curated reference notes from the supplied level/problem outline with added standard algorithm intuition and complexities. They are not verbatim exports of past chats, and no personal code submissions are claimed.
+
+
+## Python reference implementations
+
+### LC 26 — Remove Duplicates
+```python
+class Solution:
+    def removeDuplicates(self, nums):
+        write = 0
+        for value in nums:
+            if write == 0 or value != nums[write - 1]:
+                nums[write] = value
+                write += 1
+        return write
+```
+### LC 27 — Remove Element
+```python
+class Solution:
+    def removeElement(self, nums, val):
+        write = 0
+        for value in nums:
+            if value != val:
+                nums[write] = value
+                write += 1
+        return write
+```
+### LC 283 — Move Zeroes
+```python
+class Solution:
+    def moveZeroes(self, nums):
+        write = 0
+        for read in range(len(nums)):
+            if nums[read] != 0:
+                nums[write], nums[read] = nums[read], nums[write]
+                write += 1
+```
+### LC 80 — Remove Duplicates II
+```python
+class Solution:
+    def removeDuplicates(self, nums):
+        write = 0
+        for value in nums:
+            if write < 2 or value != nums[write - 2]:
+                nums[write] = value
+                write += 1
+        return write
+```
