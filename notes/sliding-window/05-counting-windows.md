@@ -33,3 +33,60 @@ Never count only one window per right endpoint when many shorter starts also qua
 4. Explain why each element enters/leaves the window or deque a bounded number of times.
 
 > Curated explanations, not verbatim chat exports or your saved accepted code. The level's inclusion in the completed track does not independently verify every submitted solution.
+
+
+## Python reference implementations
+
+### LC 930 — Binary Subarrays With Sum
+```python
+class Solution:
+    def numSubarraysWithSum(self, nums, goal):
+        def at_most(limit):
+            if limit < 0: return 0
+            left = total = count = 0
+            for right, value in enumerate(nums):
+                total += value
+                while total > limit:
+                    total -= nums[left]
+                    left += 1
+                count += right-left+1
+            return count
+        return at_most(goal)-at_most(goal-1)
+```
+### LC 1248 — Count Number of Nice Subarrays
+```python
+class Solution:
+    def numberOfSubarrays(self, nums, k):
+        def at_most(limit):
+            if limit < 0: return 0
+            left = odds = count = 0
+            for right, value in enumerate(nums):
+                odds += value % 2
+                while odds > limit:
+                    odds -= nums[left] % 2
+                    left += 1
+                count += right-left+1
+            return count
+        return at_most(k)-at_most(k-1)
+```
+### LC 992 — Subarrays With K Different Integers
+```python
+from collections import defaultdict
+class Solution:
+    def subarraysWithKDistinct(self, nums, k):
+        def at_most(limit):
+            if limit < 0: return 0
+            freq = defaultdict(int)
+            left = count = distinct = 0
+            for right, value in enumerate(nums):
+                if freq[value] == 0: distinct += 1
+                freq[value] += 1
+                while distinct > limit:
+                    old = nums[left]
+                    freq[old] -= 1
+                    if freq[old] == 0: distinct -= 1
+                    left += 1
+                count += right-left+1
+            return count
+        return at_most(k)-at_most(k-1)
+```
