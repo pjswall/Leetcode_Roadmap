@@ -24,6 +24,7 @@ For details, see the [master roadmap](tracker/ROADMAP.md) and [problem tracker](
 - [Sliding Window — six completed levels](notes/sliding-window/README.md)
 - [Two Pointers — eight completed levels](notes/two-pointers/README.md)
 - [Intervals — 16 completed problems, 7 pattern guides](notes/intervals/README.md)
+- [Binary Search — levels 1–3 with Python code](notes/binary-search/README.md)
 - [LC 153 note](notes/binary-search/LC153.md) — rotated-array minimum
 - [LC 930 note](notes/sliding-window/LC930.md) — exact-count counting (historical study note)
 
