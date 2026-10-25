@@ -33,3 +33,66 @@ Always justify pointer movement via an invariant; for rainwater, update maxima i
 - Compare against brute force and state time/space complexity.
 
 > These are curated reference notes from the supplied level/problem outline with added standard algorithm intuition and complexities. They are not verbatim exports of past chats, and no personal code submissions are claimed.
+
+
+## Python reference implementations
+
+### LC 11 — Container With Most Water
+```python
+class Solution:
+    def maxArea(self, height):
+        l, r, best = 0, len(height) - 1, 0
+        while l < r:
+            best = max(best, (r - l) * min(height[l], height[r]))
+            if height[l] <= height[r]: l += 1
+            else: r -= 1
+        return best
+```
+### LC 881 — Boats to Save People
+```python
+class Solution:
+    def numRescueBoats(self, people, limit):
+        people.sort()
+        l, r, boats = 0, len(people) - 1, 0
+        while l <= r:
+            if people[l] + people[r] <= limit: l += 1
+            r -= 1
+            boats += 1
+        return boats
+```
+### LC 42 — Trapping Rain Water
+```python
+class Solution:
+    def trap(self, height):
+        l, r = 0, len(height) - 1
+        left_max = right_max = water = 0
+        while l <= r:
+            if height[l] <= height[r]:
+                left_max = max(left_max, height[l])
+                water += left_max - height[l]
+                l += 1
+            else:
+                right_max = max(right_max, height[r])
+                water += right_max - height[r]
+                r -= 1
+        return water
+```
+### LC 1574 — Shortest Subarray to Be Removed
+```python
+class Solution:
+    def findLengthOfShortestSubarray(self, arr):
+        n = len(arr)
+        left = 0
+        while left + 1 < n and arr[left] <= arr[left + 1]: left += 1
+        if left == n - 1: return 0
+        right = n - 1
+        while right > 0 and arr[right - 1] <= arr[right]: right -= 1
+        best = min(n - left - 1, right)
+        i, j = 0, right
+        while i <= left and j < n:
+            if arr[i] <= arr[j]:
+                best = min(best, j - i - 1)
+                i += 1
+            else: j += 1
+        return best
+```
