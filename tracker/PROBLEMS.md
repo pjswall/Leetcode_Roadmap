@@ -20,8 +20,16 @@ Problems recorded across the track:
 
 All levels of this track are **complete** as confirmed by the learner. Per-problem accepted Python submissions are not yet all imported.
 
-## Intervals — fully completed track
-Specific historical problem IDs still to be imported; completion is confirmed.
+## Intervals — fully completed track (16 problems)
+- Basic overlap: **252, 2446**
+- Merge / containment: **56, 1288**
+- Insert / online booking: **57, 729**
+- Greedy interval selection: **435, 452, 646**
+- Resource allocation / min-heap: **253, 2406**
+- Two-list intersections: **986, 1229**
+- Sweep line / difference events: **1094, 731, 732**
+
+[Read the Intervals study guides](../notes/intervals/README.md).
 
 ## Binary Search — current topic
 - Levels 1 and 2: **Completed**; individual problem IDs to be imported.
