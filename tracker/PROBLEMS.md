@@ -50,12 +50,12 @@ Topic completion is user-confirmed. The detailed itemization below reflects the 
 
 [Read the Intervals study guides](../notes/intervals/README.md).
 
-## Binary Search — current topic
+## Binary Search — levels 1–3 completed
 | Level | Pattern | Problems | Status |
 |---|---|---|---|
 | 1 | Classical Binary Search | 704, 35, 69, 367 | Completed |
 | 2 | Boundaries and Insertion Positions | 34, 278, 744, 1539 | Completed |
-| 3 | Rotated Sorted Arrays | 33, 153 | In progress; **153 current** |
+| 3 | Rotated Sorted Arrays | 33, 81, 153, 154 | **Completed** |
 
 [Binary Search guides and reference code](../notes/binary-search/README.md).
 
